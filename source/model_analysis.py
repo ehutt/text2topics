@@ -17,6 +17,7 @@ import gensim
 from gensim import corpora
 import wordcloud
 from wordcloud import WordCloud, STOPWORDS
+import math
 import pyLDAvis.gensim
 
 
@@ -26,8 +27,12 @@ dictionary = gensim.corpora.Dictionary.load('dictionary.gensim')
 corpus = pickle.load(open(corpusname, 'rb'))
 ldamodel = gensim.models.ldamodel.LdaModel.load(modelname)
 
-# make word cloud for top 4 topics
-def topicCloud(model,num_topics): 
+#function: topicCloud
+#generates word clouds for each topic
+#inputs: model (obj, LDA model)
+#######  N_TOPICS (int, num topics)
+#returns: matplotlib pyplot
+def topicCloud(model,N_TOPICS): 
     
     cloud = WordCloud(stopwords=STOPWORDS,
                       background_color='white',
@@ -38,9 +43,8 @@ def topicCloud(model,num_topics):
                       prefer_horizontal=1.0)
     
     topics = model.show_topics(formatted=False)
-    
-    fig, axes = plt.subplots(2, 2, figsize=(10,10), sharex=True, sharey=True)
-    
+    h = math.ceil(N_TOPICS/2)
+    fig, axes = plt.subplots(h, 2, figsize=(10,10), sharex=True, sharey=True)
     for i, ax in enumerate(axes.flatten()):
         fig.add_subplot(ax)
         topic_words = dict(topics[i][1])
@@ -55,6 +59,8 @@ def topicCloud(model,num_topics):
     plt.tight_layout()
     plt.show()
     return plt 
+
+
 
 
 
