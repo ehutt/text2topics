@@ -23,7 +23,11 @@ from nltk.stem.porter import PorterStemmer
 nltk.download('punkt')
 nltk.download('stopwords')
 
-
+#function: dataClean 
+#process/tokenize raw text for use with LDA
+#inputs: raw_file (str, path of raw text) 
+#######  clean_file (str, where to save cleaned text)
+#######  STEM (Boolean, true if want to stem words)
 def dataClean(raw_file,clean_file,STEM):
 
     #load data from pickle 
