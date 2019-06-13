@@ -10,7 +10,9 @@ import urllib
 import json
 import pandas as pd
 
+#PROTOTYPE 
 
+#starting with only AK cases from 2008
 api_AK = 'https://api.case.law/v1/cases/?jurisdiction=ark&decision_date_min=2008-12-31&full_case=true'
 url = urllib.request.urlopen(api_AK)
 obj = json.load(url)
@@ -18,8 +20,9 @@ obj = json.load(url)
 data = obj['results']
 case1 = data[1]
 
-fields = ['casebody','court','decision_date','docket_number','id','name','name_abbreviation']
+#fields = ['casebody','court','decision_date','docket_number','id','name','name_abbreviation']
 
+#extract nonduplicate opinions from each case 
 docs = set()
 count = 0
 for d in data: 
@@ -39,11 +42,12 @@ for d in data:
         else: print("No 'data' key.")
     else: print("No 'casebody' key.")
     
-#convert to pandas df 
+#convert to dataframe and save
 df = pd.DataFrame(list(docs))
 df.columns = ['case','text']
-#convert from series to string
 df['text'] = df['text'].astype(str)
+filename = 'documents_raw.pkl'
+df.to_pickle(filename)
 
 
             
