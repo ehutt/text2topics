@@ -9,7 +9,7 @@ Created on Mon Jun 10 16:43:41 2019
 import urllib
 import json
 import pandas as pd
-
+import pickle
 #PROTOTYPE 
 
 #function: dataDownload 
