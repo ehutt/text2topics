@@ -1,4 +1,4 @@
-#TO DO LIST 
+# TO DO LIST 
 
 1. Organize directories (I know it's a mess, but not sure what standard practice is here). 
 1.5. Set up AWS 
