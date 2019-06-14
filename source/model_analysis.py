@@ -26,13 +26,32 @@ ldamodel = gensim.models.ldamodel.LdaModel.load(modelname)
 N_TOPICS = 4
 
 #TO DO 
-#write function to try different topic nums, track coherence 
 #try using mallet lda model 
 #remove high frequency words 
 #t-SNE clustering 
 
 
+#function: coherenceByNumTopics
+#computes coherence values for a range of topic numbers
+#inputs: DTM (obj)
+######## dictionary (obj)
+######## clean_docs (list)
+######## N_PASS (int, num model iterations)
+######## start (int, num topics start), stop (int, max num topics)
+######## step (int, num topics step size)
+#returns: model_list (all models tested), coherence_values (list of coherence scores)
+def coherenceByNumTopics(DTM, dictionary, clean_docs, N_PASS, start=2, stop, step=3):
+    coherence_values = []
+    model_list = []
+    for num_topics in range(start, stop, step):
+        model = LDA(DTM,dictionary, num_topics, N_PASS)
+        model_list.append(model)
+        coherencemodel = CoherenceModel(model=model, texts=clean_docs, dictionary=dictionary, coherence='c_v')
+        coherence_values.append(coherencemodel.get_coherence())
+    return model_list, coherence_values
 
+
+    
 
 
     
