@@ -28,7 +28,5 @@ N_PASS = 20
 ldamodel = LDA(clean_file,DTM_file,dict_file,model_file, N_TOPICS, N_PASS)
 ``` 
 
-
-
-
+5. Open the Jupyter notebook ```visualizations.ipynb``` to explore the LDA model with interactive visualizations. 
 
