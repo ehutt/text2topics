@@ -14,7 +14,6 @@ Created on Tue Jun 11 14:50:34 2019
 
 import pickle
 import pandas as pd
-import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
@@ -26,16 +25,15 @@ from nltk.stem.porter import PorterStemmer
 #function: dataClean 
 #process/tokenize raw text for use with LDA
 #inputs: raw_file (str, path of raw text) 
-#######  clean_file (str, where to save cleaned text)
 #######  STEM (Boolean, true if want to stem words)
-def dataClean(raw_file,clean_file,STEM):
+def dataClean(raw_file,STEM):
 
     #load data from pickle 
     raw_docs = pd.read_pickle(raw_file)
     raw_text = list(raw_docs['text'])
 
-
     stop_words = set(stopwords.words('english'))
+    #stop_words.append('court')
     porter = PorterStemmer()
     clean_docs=list() 
 
@@ -49,15 +47,24 @@ def dataClean(raw_file,clean_file,STEM):
             words = [porter.stem(w) for w in words]
         clean_docs.append(words)
     
+    return clean_docs
+
+
+#function: saveClean 
+#save cleaned documents
+#inputs: clean_docs (clean document list)
+#######  clean_file (str, where to save cleaned text)
+def saveClean(clean_docs, clean_file):
     with open(clean_file, 'wb') as f:
         pickle.dump(clean_docs,f)
-    
     return 
-    
 
-raw_file = 'documents_raw.pkl'
-clean_file = 'documents_clean.pkl' 
-dataClean(raw_file,clean_file,STEM=True)
+
+#raw_file = 'documents_raw.pkl'
+#clean_file = 'documents_clean.pkl' 
+#clean_docs = dataClean(raw_file,clean_file,STEM=True)
+#saveClean(clean_docs,clean_file)
+
 
     
     
