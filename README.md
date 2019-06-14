@@ -10,6 +10,7 @@ conda create -n text2topics python=3.7
 conda activate text2topics
 cd text2topics 
 pip install -r requirements.txt 
+cd source
 ```
 
 2. Run ```main.py``` to load data and initialize variables/path names. 
