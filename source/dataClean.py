@@ -20,8 +20,8 @@ from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 
 #download packages if first time running 
-nltk.download('punkt')
-nltk.download('stopwords')
+#nltk.download('punkt')
+#nltk.download('stopwords')
 
 #function: dataClean 
 #process/tokenize raw text for use with LDA
