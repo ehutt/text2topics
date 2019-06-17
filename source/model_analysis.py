@@ -25,11 +25,6 @@ corpus = pickle.load(open(corpusname, 'rb'))
 ldamodel = gensim.models.ldamodel.LdaModel.load(modelname)
 N_TOPICS = 4
 
-#TO DO 
-#try using mallet lda model 
-#remove high frequency words 
-#t-SNE clustering 
-
 
 #function: coherenceByNumTopics
 #computes coherence values for a range of topic numbers
