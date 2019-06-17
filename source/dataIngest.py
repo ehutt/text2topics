@@ -51,10 +51,6 @@ def dataDownload(api_url, saveFile):
     return 
 
 
-#starting with only AK cases from 2008
-#api_AK = 'https://api.case.law/v1/cases/?jurisdiction=ark&decision_date_min=2008-12-31&full_case=true'
-#raw_file = 'documents_raw.pkl'
-#dataDownload(api_AK,raw_file)
 
             
                 

@@ -60,10 +60,7 @@ def saveClean(clean_docs, clean_file):
     return 
 
 
-#raw_file = 'documents_raw.pkl'
-#clean_file = 'documents_clean.pkl' 
-#clean_docs = dataClean(raw_file,clean_file,STEM=True)
-#saveClean(clean_docs,clean_file)
+
 
 
     
