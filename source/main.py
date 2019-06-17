@@ -29,16 +29,16 @@ dict_file = 'dictionary.gensim'
 
 #process and save data
 dataDownload(api_AK,raw_file)
-clean_docs = dataClean(raw_file,clean_file,STEM=True)
-saveClean(clean_docs,clean_file)
+clean_docs = dataClean(raw_file,STEM=True)
+#saveClean(clean_docs,clean_file)
 
 #make dictionary from documents
 dictionary = makeDict(clean_docs)
-saveDict(dict_file)
+#saveDict(dict_file)
 
 #make document-term-matrix from docs,dictionary
 DTM = makeDTM(clean_docs,dictionary)
-saveDTM(DTM, DTM_file)
+#saveDTM(DTM, DTM_file)
 
 #set num topics and LDA iterations
 N_TOPICS = 4
@@ -46,7 +46,7 @@ N_PASS = 20
 
 #construct LDA model
 ldamodel = LDA(DTM,dictionary, N_TOPICS, N_PASS)
-saveLDA(ldamodel,model_file)
+#saveLDA(ldamodel,model_file)
 
 
 

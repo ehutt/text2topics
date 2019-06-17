@@ -10,7 +10,6 @@ import urllib
 import json
 import pandas as pd
 
-#PROTOTYPE 
 
 #function: dataDownload 
 #downloads JSON data from an API url 
