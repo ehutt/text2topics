@@ -7,6 +7,7 @@ Created on Thu Jun 13 17:43:14 2019
 """
 
 import nltk
+import pandas as pd
 from dataIngest import dataDownload
 from dataClean import dataClean, saveClean
 from model_lda import LDA, makeDict, saveDict,makeDTM,saveDTM, saveLDA
@@ -29,6 +30,7 @@ dict_file = 'dictionary.gensim'
 
 #process and save data
 dataDownload(api_AK,raw_file)
+
 clean_docs = dataClean(raw_file,STEM=True)
 #saveClean(clean_docs,clean_file)
 
