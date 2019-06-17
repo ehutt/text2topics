@@ -18,16 +18,22 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 
-#download packages if first time running 
-#nltk.download('punkt')
-#nltk.download('stopwords')
 
-#function: dataClean 
-#process/tokenize raw text for use with LDA
-#inputs: raw_file (str, path of raw text) 
-#######  STEM (Boolean, true if want to stem words)
+
+
 def dataClean(raw_file,STEM):
 
+    """Return tokenized/processed doc list from raw text.
+    
+    Tokenize, remove stop words/punctuation/numbers, and stem (optional).
+    
+    Keyword Arguments: 
+        raw_file -- str, path of raw text
+        STEM -- Boolean, true if want to stem words
+    Returns: 
+        clean_docs list 
+    """
+    
     #load data from pickle 
     raw_docs = pd.read_pickle(raw_file)
     raw_text = list(raw_docs['text'])
@@ -50,11 +56,10 @@ def dataClean(raw_file,STEM):
     return clean_docs
 
 
-#function: saveClean 
-#save cleaned documents
-#inputs: clean_docs (clean document list)
-#######  clean_file (str, where to save cleaned text)
 def saveClean(clean_docs, clean_file):
+    
+    """Save clean_docs list to clean_file path"""
+    
     with open(clean_file, 'wb') as f:
         pickle.dump(clean_docs,f)
     return 

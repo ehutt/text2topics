@@ -45,7 +45,7 @@ N_TOPICS = 4
 N_PASS = 20
 
 #construct LDA model
-ldamodel = LDA(DTM,dictionary, N_TOPICS, N_PASS)
+#ldamodel = LDA(DTM,dictionary, N_TOPICS, N_PASS)
 #saveLDA(ldamodel,model_file)
 
 
