@@ -25,11 +25,7 @@ corpus = pickle.load(open(corpusname, 'rb'))
 ldamodel = gensim.models.ldamodel.LdaModel.load(modelname)
 N_TOPICS = 4
 
-#TO DO 
-#write function to try different topic nums, track coherence 
-#try using mallet lda model 
-#remove high frequency words 
-#t-SNE clustering 
+
 
 
 

@@ -7,10 +7,7 @@ Created on Tue Jun 11 14:50:34 2019
 """
 
 
-#Notes: 
-#consider identifying POS (at least for names) to avoid case problems
-### e.g. PunktSentenceTokenizer
-#to stem or not to stem? 
+
 
 import pickle
 import pandas as pd
@@ -19,9 +16,6 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 
-#download packages if first time running 
-#nltk.download('punkt')
-#nltk.download('stopwords')
 
 #function: dataClean 
 #process/tokenize raw text for use with LDA
@@ -55,9 +49,6 @@ def dataClean(raw_file,clean_file,STEM):
     return 
     
 
-raw_file = 'documents_raw.pkl'
-clean_file = 'documents_clean.pkl' 
-dataClean(raw_file,clean_file,STEM=True)
 
     
     
