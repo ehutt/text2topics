@@ -7,11 +7,6 @@ Created on Tue Jun 11 14:50:34 2019
 """
 
 
-#Notes: 
-#consider identifying POS (at least for names) to avoid case problems
-### e.g. PunktSentenceTokenizer
-#to stem or not to stem? 
-
 import pickle
 import pandas as pd
 from nltk.tokenize import word_tokenize

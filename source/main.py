@@ -6,29 +6,29 @@ Created on Thu Jun 13 17:43:14 2019
 @author: elizabethhutton
 """
 
-import nltk
-import pandas as pd
-from dataIngest import dataDownload
-from dataClean import dataClean, saveClean
-from model_lda import LDA, makeDict, saveDict,makeDTM,saveDTM, saveLDA
-import argparse
+import ingest
+import clean 
+import model_lda 
+#import argparse
 
 #starting with only AK cases from 2008
 api_AK = 'https://api.case.law/v1/cases/?jurisdiction=ark&decision_date_min=2008-12-31&full_case=true'
 
-parser = argparse.ArgumentParser(description='Text 2 Topics with LDA')
-parser.add_argument('N_TOPICS', type=int,help='Number of topics to identify (Default=3)')
-parser.add_argument('N_PASS', type=int,help='Number of model iterations (Default=10)')
+
+#parser = argparse.ArgumentParser(description='Text 2 Topics with LDA')
+#parser.add_argument('N_TOPICS', type=int,help='Number of topics to identify (Default=3)')
+#parser.add_argument('N_PASS', type=int,help='Number of model iterations (Default=10)')
 
 #optional arguments
-parser.add_argument('--url', type=str, default=api_AK, help='URL for data download. (Default CAP API)')
-                
-args = parser.parse_args()
-print(args)
+#parser.add_argument('--url', type=str, default=api_AK, help='URL for data download. (Default CAP API)')
+#                
+#args = parser.parse_args()
+#print(args)
 
-#download packages if first time running 
-#nltk.download('punkt')
-#nltk.download('stopwords')
+##set num topics and LDA iterations
+#N_TOPICS = args.N_TOPICS
+#N_PASS = args.N_PASS
+
 
 #define path names
 raw_file = 'data/documents_raw.pkl'
@@ -39,27 +39,23 @@ dict_file = 'data/dictionary.gensim'
 
 
 #process and save data
-url = args.url
-dataDownload(url,raw_file)
+url = api_AK
+#url = args.url
+ingest.dataDownload(url,raw_file)
 
-clean_docs = dataClean(raw_file,FILTER= True,STEM=False)
-#saveClean(clean_docs,clean_file)
+clean_docs = clean.dataClean(raw_file,FILTER= True,STEM=False)
 
 #make dictionary from documents
-dictionary = makeDict(clean_docs)
-#saveDict(dict_file)
+dictionary = model_lda.makeDict(clean_docs)
 
 #make document-term-matrix from docs,dictionary
-DTM = makeDTM(clean_docs,dictionary)
-#saveDTM(DTM, DTM_file)
-
-##set num topics and LDA iterations
-N_TOPICS = args.N_TOPICS
-N_PASS = args.N_PASS
+DTM = model_lda.makeDTM(clean_docs,dictionary)
 
 #construct LDA model
-ldamodel = LDA(DTM,dictionary, N_TOPICS, N_PASS)
-saveLDA(ldamodel,model_file)
+#ldamodel = model_lda.LDA(DTM,dictionary, N_TOPICS, N_PASS)
+#model_lda.saveLDA(ldamodel,model_file)
+
+
 
 
 
