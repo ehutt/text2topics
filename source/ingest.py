@@ -9,7 +9,11 @@ Created on Mon Jun 10 16:43:41 2019
 import urllib
 import json
 import pandas as pd
+<<<<<<< HEAD:source/dataIngest.py
+import pickle
+=======
 
+>>>>>>> dev:source/ingest.py
 
 #function: dataDownload 
 
@@ -57,7 +61,10 @@ def dataDownload(api_url, saveFile):
     return 
 
 
+<<<<<<< HEAD:source/dataIngest.py
+=======
 
+>>>>>>> dev:source/ingest.py
             
                 
                 

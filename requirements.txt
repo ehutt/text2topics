@@ -1,6 +1,14 @@
 # To install these Python dependencies, please type:
 # pip install -r requirements.txt
 
+<<<<<<< HEAD
+nltk
+pickle
+pandas
+urllib
+json
+gensim
+=======
 argparse
 urllib
 json
@@ -14,3 +22,4 @@ math
 warnings
 pyLDAvis.gensim
 spacy
+>>>>>>> dev

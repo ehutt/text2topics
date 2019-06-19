@@ -64,6 +64,17 @@ def LDA(DTM, dictionary, N_TOPICS, N_PASS):
     return ldamodel
 
 
+<<<<<<< HEAD
+#text_file = 'documents_clean.pkl' 
+#model_file = 'model1.gensim' 
+#DTM_file = 'corpus_matrix.pkl'
+#dict_file = 'dictionary.gensim'
+
+#N_TOPICS = 4
+#N_PASS = 20
+
+#ldamodel = LDA(text_file,DTM_file,dict_file,model_file, N_TOPICS, N_PASS)
+=======
 def saveLDA(ldamodel,model_file):
     
     """Save LDA model to model_file path."""
@@ -73,4 +84,5 @@ def saveLDA(ldamodel,model_file):
 
     
 
+>>>>>>> dev
 

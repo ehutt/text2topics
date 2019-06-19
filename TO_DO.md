@@ -13,7 +13,7 @@
   * try mallet lda model 
 4. Embeddings 
   * train word2vec on case docs 
-  * find KNN clusters 
+  * find k means clusters 
   * compare to topic clusters of LDA 
   * try to generate topic labels 
 5. Wrap into package 
