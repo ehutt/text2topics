@@ -1,6 +1,7 @@
 # To install these Python dependencies, please type:
 # pip install -r requirements.txt
 
+argparse
 urllib
 json
 pandas
@@ -12,3 +13,4 @@ wordcloud
 math
 warnings
 pyLDAvis.gensim
+spacy
