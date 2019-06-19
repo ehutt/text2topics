@@ -9,13 +9,24 @@ Created on Mon Jun 10 16:43:41 2019
 import urllib
 import json
 import pandas as pd
+<<<<<<< HEAD:source/dataIngest.py
 import pickle
+=======
+
+>>>>>>> dev:source/ingest.py
 
 #function: dataDownload 
-#downloads JSON data from an API url 
-#inputs: api_url (where the data is stored in API) 
-#######  saveFile (name of file/path to store extracted raw text)
+
 def dataDownload(api_url, saveFile): 
+    
+    """Download JSON data from an CAP API url. 
+    
+    Extract opinion text only and saves to file. 
+    
+    Keyword Args: 
+        api_url -- str, where the data is stored in API
+        saveFile str, path to store extracted raw text
+    """
     
     #download JSON from api url 
     url = urllib.request.urlopen(api_url)
@@ -50,6 +61,10 @@ def dataDownload(api_url, saveFile):
     return 
 
 
+<<<<<<< HEAD:source/dataIngest.py
+=======
+
+>>>>>>> dev:source/ingest.py
             
                 
                 
