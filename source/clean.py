@@ -6,12 +6,6 @@ Created on Tue Jun 11 14:50:34 2019
 @author: elizabethhutton
 """
 
-
-<<<<<<< HEAD:source/dataClean.py
-
-
-=======
->>>>>>> dev:source/clean.py
 import pickle
 import pandas as pd
 from nltk.tokenize import word_tokenize
@@ -61,14 +55,5 @@ def saveClean(clean_docs, clean_file):
     
     with open(clean_file, 'wb') as f:
         pickle.dump(clean_docs,f)
-    return 
+    return
 
-<<<<<<< HEAD:source/dataClean.py
-=======
-
-
-
->>>>>>> dev:source/clean.py
-
-    
-    

@@ -1,25 +1,13 @@
 # To install these Python dependencies, please type:
 # pip install -r requirements.txt
 
-<<<<<<< HEAD
-nltk
-pickle
-pandas
-urllib
-json
-gensim
-=======
 argparse
-urllib
-json
-pandas
-pickle
-nltk
 gensim
 matplotlib
-wordcloud
-math
-warnings
-pyLDAvis.gensim
+nltk
+numpy
+pandas
+pyldavis
 spacy
->>>>>>> dev
+streamlit
+wordcloud
