@@ -9,6 +9,7 @@ Created on Thu Jun 13 17:43:14 2019
 import ingest
 import clean 
 import model_lda 
+import model_vis
 #import argparse
 
 #starting with only AK cases from 2008
@@ -51,11 +52,14 @@ dictionary = model_lda.makeDict(clean_docs)
 #make document-term-matrix from docs,dictionary
 DTM = model_lda.makeDTM(clean_docs,dictionary)
 
+N_PASS = 30
+N_TOPICS = 12
+
 #construct LDA model
-#ldamodel = model_lda.LDA(DTM,dictionary, N_TOPICS, N_PASS)
+ldamodel = model_lda.LDA(DTM,dictionary, N_TOPICS, N_PASS)
 #model_lda.saveLDA(ldamodel,model_file)
 
-
+model_vis.topicCloud(ldamodel,N_TOPICS)
 
 
 

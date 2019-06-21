@@ -17,6 +17,7 @@ cd source
 ```
 nltk.download('punkt')
 nltk.download('stopwords')
+nltk.download('wordnet')
 ```
 
 3. Run ```main.py``` to load data and initialize variables/path names. 
