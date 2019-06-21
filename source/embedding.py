@@ -6,8 +6,8 @@ Created on Mon Jun 17 11:02:21 2019
 @author: elizabethhutton
 """
 
-import spacy 
-from dataClean import dataClean
+import spacy
+from clean import dataClean
 import pandas as pd
 
 
