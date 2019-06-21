@@ -1,5 +1,7 @@
 # don't track large data file 
-data/* 
+data/ 
+*.xz
+
 
 # Compiled source #
 ###################
@@ -9,6 +11,8 @@ data/*
 *.exe
 *.o
 *.so
+
+
 
 # Packages #
 ############
