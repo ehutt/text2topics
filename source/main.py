@@ -56,10 +56,10 @@ N_PASS = 30
 N_TOPICS = 12
 
 #construct LDA model
-ldamodel = model_lda.LDA(DTM,dictionary, N_TOPICS, N_PASS)
+#ldamodel = model_lda.LDA(DTM,dictionary, N_TOPICS, N_PASS)
 #model_lda.saveLDA(ldamodel,model_file)
 
-model_vis.topicCloud(ldamodel,N_TOPICS)
+#model_vis.topicCloud(ldamodel,N_TOPICS)
 
 
 
