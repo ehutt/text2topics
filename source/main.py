@@ -9,7 +9,8 @@ Created on Thu Jun 13 17:43:14 2019
 import ingest
 import clean 
 import model_lda 
-import model_vis
+import pandas as pd
+
 #import argparse
 
 #starting with only AK cases from 2008
@@ -43,7 +44,8 @@ dict_file = 'data/dictionary.gensim'
 url = api_AK
 #url = args.url
 ingest.dataDownload(url,raw_file)
-
+raw_docs = pd.read_pickle(raw_file)
+raw_text = list(raw_docs['text'])
 clean_docs = clean.dataClean(raw_file,FILTER= True,STEM=False)
 
 #make dictionary from documents

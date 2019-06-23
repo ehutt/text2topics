@@ -9,7 +9,6 @@ Created on Mon Jun 10 16:43:41 2019
 import urllib
 import json
 import pandas as pd
-import lzma 
 
 
 #function: dataDownload 
@@ -58,10 +57,6 @@ def dataDownload(api_url, saveFile):
     return 
 
 
-raw_file = '../data/raw/Arkansas/data/' 
-            
-                
-                
         
     
     

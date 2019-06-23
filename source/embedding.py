@@ -8,7 +8,7 @@ Created on Mon Jun 17 11:02:21 2019
 
 import spacy 
 from spacy import displacy
-from dataClean import dataClean
+from clean import dataClean
 import pandas as pd
 
 
@@ -17,8 +17,9 @@ import pandas as pd
 nlp = spacy.load('en_core_web_lg')
 
 raw_file = 'data/documents_raw.pkl'
-
-displacy.render(doc, style=’ent’, jupyter=True)
+raw_docs = pd.read_pickle(raw_file)
+doc = nlp(raw_docs['text'][0])
+ 
 
 clean_docs = dataClean(raw_file,FILTER=True,STEM=False)
 

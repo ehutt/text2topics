@@ -11,6 +11,7 @@ conda activate text2topics
 cd text2topics 
 pip install -r requirements.txt 
 cd source
+python -m spacy download en
 ```
 2. If first time running, download the following packages: 
 
