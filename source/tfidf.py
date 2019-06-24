@@ -8,9 +8,9 @@ Created on Sun Jun 23 12:53:00 2019
 
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
-import numpy as np
 import spacy
-
+from matplotlib import pyplot as plt
+import math
 
 def my_tokenizer(doc):
 
@@ -64,12 +64,12 @@ def tfidf(raw_text):
     ###tokenize according to custom tokenizer function
     vectorizer = TfidfVectorizer(max_df = 0.8,tokenizer=my_tokenizer,stop_words='english')
     wm = vectorizer.fit_transform(raw_text)
-    indices = np.argsort(vectorizer.idf_)[::-1]
+    #indices = np.argsort(vectorizer.idf_)[::-1]
     tokens = vectorizer.get_feature_names()
     df = wm2df(wm, tokens)
-    return df,indices 
+    return df
     
-def filter_by_tfidf(df,indices,top_n, bottom_n):  
+def filter_by_tfidf(df, percent_remove):  
     
     """Remove bottom_n words from documents by TF-IDF
     
@@ -83,13 +83,25 @@ def filter_by_tfidf(df,indices,top_n, bottom_n):
         top_features - list of top_n tokens 
         bottom_features - list of bottom_n tokens (removed from df)
     """
+      
+    tfidf = df.sum(axis=0)
+    tfidf = tfidf.sort_values(ascending=False)
+    bottom_n = math.ceil(percent_remove*len(tfidf))
+    tokens = tfidf.index[bottom_n:]
+    filtered = df.drop(tokens, axis=1)
+    return filtered
+
+
+def plot_tfidf(df):
+    tfidf = df.sum(axis=0)
+    tfidf = tfidf.sort_values(ascending=False)
+    x = range(len(tfidf))
+    plt.plot(x,tfidf)
+    plt.show() 
+    return     
     
-    tokens = df.columns
-    top_features = [tokens[i] for i in indices[:top_n]]
-    bottom_features = [tokens[i] for i in indices[len(tokens)-bottom_n:]]
-    filtered = df.drop(bottom_features, axis=1)
-    return filtered, top_features, bottom_features
-
-
-
+    
+    
+    
+    
     
