@@ -6,6 +6,7 @@ Created on Mon Jun 10 16:43:41 2019
 @author: elizabethhutton
 """
 
+
 import urllib
 import json
 import pandas as pd
@@ -55,3 +56,8 @@ def dataDownload(api_url, saveFile):
     df['text'] = df['text'].astype(str)
     df.to_pickle(saveFile)
     return 
+
+
+        
+    
+    

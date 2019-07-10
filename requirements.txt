@@ -1,7 +1,6 @@
 # To install these Python dependencies, please type:
 # pip install -r requirements.txt
 
-argparse
 gensim
 matplotlib
 nltk
@@ -9,5 +8,6 @@ numpy
 pandas
 pyldavis
 spacy
-streamlit
 wordcloud
+yellowbrick
+sklearn
