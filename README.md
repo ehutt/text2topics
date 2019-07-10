@@ -46,20 +46,9 @@ python -m spacy download en
 spacy download en_core_web_lg
 ```
 
-## Example Usage
 
-## Advanced Usage 
-### Training 
-### Inference
 
-## How It Works
-### Pipeline
-### Latent Dirichlet Allocation 
-About LDA 
-### Word Embeddings + Clustering
-About GloVe embeddings and kmeans clustering
 
-## Next Steps
 
 
 
