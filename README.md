@@ -105,23 +105,31 @@ This program uses a GloVe embedding model pretrained on Wikipedia corpus (Spacy'
 
 Word embedding models are good for topic modeling because they are able to capture semantic and contextual information that other BOW methods cannot. Semantic relationships between words are preserved via their spatial relationships in the embedding space. 
 
+
 ![](images/embedding.png)
+
 
 ### Step 2: K-Means Clustering
 
 Once the words have been embedded, perform k-means clustering on the vectors to identify words forming topic clusters. 
 
+
 ![](images/kmeans.png)
+
 
 #### Step 2.5: Iterate
 
 To determine the best "k" for the K-Means clustering, plot the results for several different values and use the elbow method to identify the best. 
 
+For example, here, 20 topics is good. 
 
 
+![](images/elbow.png)
 
 
+### Step 3: Results 
 
+![](images/clouds.png)
 
 
 
