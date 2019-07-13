@@ -169,7 +169,8 @@ def load_raw_text(raw_file):
     raw_text = list(raw['text'])
     return raw_text
 
-def load_clean_corpus(clean_file):
+def load_clean_corpus(clean_path):
+    clean_file = clean_path + 'clean.pkl'
     clean_text = pickle.load( open(clean_file, "rb" ) )
     clean_docs = list()
     for text in clean_text: 
@@ -179,7 +180,7 @@ def load_clean_corpus(clean_file):
     print('Loaded clean docs.')
     return clean_corpus
 
-def clean(raw_file,clean_file,stats_file):
+def clean(raw_file,clean_path,results_path):
     """Preprocess documents
     
     Convert to lower-case.
@@ -192,6 +193,8 @@ def clean(raw_file,clean_file,stats_file):
     Save text to clean_file and stats to stats_file.
     Return clean_corpus as Corpus object.
     """
+    clean_file = clean_path + 'clean.pkl'
+    stats_file = results_path + 'stats.pkl' 
     raw_text = load_raw_text(raw_file)    
     clean_docs = list()
     nlp = spacy.load('en')
