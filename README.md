@@ -22,7 +22,7 @@ provide insights into the nature of an existing corpus and can also be
 used to perform inference-- that is, to identify the key topics in an 
 unseen document. 
 
-![](../images/intro.png)
+![Alt text](../images/intro.png)
 
 
 Additional Info: [Slides](http://bit.ly/text2topics_slides)
