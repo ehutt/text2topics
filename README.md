@@ -22,7 +22,7 @@ provide insights into the nature of an existing corpus and can also be
 used to perform inference-- that is, to identify the key topics in an 
 unseen document. 
 
-![Alt text](../images/intro.png)
+![](images/intro.png)
 
 
 Additional Info: [Slides](http://bit.ly/text2topics_slides)
@@ -99,9 +99,23 @@ To perform the above examples using LDA rather than the embeddings + clustering 
 
 ## How It Works 
 
+### Step 1: Use embedding model to vectorize words in documents. 
 
+This program uses a GloVe embedding model pretrained on Wikipedia corpus (Spacy's 'en_core_web_lg'). It generates 300dim vectors for each unique word in the corpus. 
 
+Word embedding models are good for topic modeling because they are able to capture semantic and contextual information that other BOW methods cannot. Semantic relationships between words are preserved via their spatial relationships in the embedding space. 
 
+![](images/embedding.png)
+
+### Step 2: K-Means Clustering
+
+Once the words have been embedded, perform k-means clustering on the vectors to identify words forming topic clusters. 
+
+![](images/kmeans.png)
+
+#### Step 2.5: Iterate
+
+To determine the best "k" for the K-Means clustering, plot the results for several different values and use the elbow method to identify the best. 
 
 
 
