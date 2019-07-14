@@ -42,11 +42,10 @@ cd text2topics
 pip install -r requirements.txt 
 ```
 
-3. If first time running, download the embedding model. Note: this may take some time (it's 788 MB). 
+3. If first time running, download needed models. Note: this may take some time (it's 788 MB). 
 
 ```
-python -m spacy download en
-spacy download en_core_web_lg
+python config.py
 ```
 
 ## Usage 

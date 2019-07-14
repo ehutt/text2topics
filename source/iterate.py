@@ -115,6 +115,7 @@ class Elbow():
         Keyword Arguments: 
             corpus -- corpus to train on
         """
+        print('Iterating kmeans over range of topics...')
         km = KMeans(init='k-means++')
         visualizer = KElbowVisualizer(km,k=range(self.start, self.stop, self.step),
                                       metric='calinski_harabaz', timings=False)

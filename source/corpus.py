@@ -16,6 +16,7 @@ from nltk.tokenize import word_tokenize
 import numpy as np 
 import pandas as pd
 import spacy
+import os
 import pickle
 from document import Document
 from sklearn.feature_extraction.text import CountVectorizer,  TfidfVectorizer
@@ -142,7 +143,7 @@ class Corpus():
     def get_frequency(): 
         return
     
-    def vectorize(self): 
+    def vectorize(self,clean_path): 
         
         """Get GloVe representations for unique words in corpus"""
         
@@ -162,7 +163,10 @@ class Corpus():
         word_vectors = np.array([glove(word).vector for word in unique_words if glove(word).has_vector])
         #index vectors by corresponding word 
         corpus_vectors = pd.DataFrame(word_vectors, index=unique_words)
+        with open(clean_path + 'corpus_vectors.pkl', 'wb') as f:
+            pickle.dump(corpus_vectors,f)
         self.vectors = corpus_vectors
+        print('Saved embedding vectors.')
         return
     
 def load_raw_text(raw_file):
@@ -179,6 +183,11 @@ def load_clean_corpus(clean_path):
         clean_docs.append(doc)
     clean_corpus = Corpus(clean_docs)
     print('Loaded clean docs.')
+    vector_file = clean_path + 'corpus_vectors.pkl'
+    if os.path.exists(vector_file): 
+        vectors = pickle.load( open(vector_file, "rb" ))
+        clean_corpus.vectors = vectors
+        print('Loaded corpus vectors.')
     return clean_corpus
 
 def clean(raw_file,clean_path,results_path):
@@ -195,7 +204,7 @@ def clean(raw_file,clean_path,results_path):
     Return clean_corpus as Corpus object.
     """
     clean_file = clean_path + 'clean.pkl'
-    stats_file = results_path + 'stats.pkl' 
+    stats_file = results_path + 'corpus_stats.pkl' 
     raw_text = load_raw_text(raw_file)    
     clean_docs = list()
     nlp = spacy.load('en')
@@ -220,7 +229,6 @@ def clean(raw_file,clean_path,results_path):
     clean_corpus = Corpus(clean_docs)
     clean_corpus.save_corpus_text(clean_file)
     clean_corpus.save_corpus_stats(stats_file)
-    print('Done')
     return clean_corpus
 
 
