@@ -124,11 +124,11 @@ if __name__ == '__main__':
             clean_corpus.make_dict()
             clean_corpus.make_dtm()
             lda_model, top_words_lda = lda.get_lda(clean_corpus,num_topics)
-            word_cloud(top_words_lda,results_folder)
+            word_cloud(top_words_lda,results_folder,show = False)
         else:
             clean_corpus.vectorize(clean_path)
             cluster_model,top_words_kmeans = clusters.get_kmeans(clean_corpus,num_topics)
-            word_cloud(top_words_kmeans,results_folder)
+            word_cloud(top_words_kmeans,results_folder, show = False)
 
 
     
