@@ -11,6 +11,7 @@ Created on Tue Jun 11 14:50:34 2019
  #load pretrained embedding model ('en_core_web_lg')
 
 from gensim import corpora
+import nltk
 from nltk.tokenize import word_tokenize
 import numpy as np 
 import pandas as pd
