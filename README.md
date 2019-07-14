@@ -42,7 +42,7 @@ cd text2topics
 pip install -r requirements.txt 
 ```
 
-3. If first time running, type in the command line: 
+3. If first time running, download the embedding model. Note: this may take some time (it's 788 MB). 
 
 ```
 python -m spacy download en
