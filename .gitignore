@@ -1,7 +1,7 @@
-# don't track large data file 
-data/ 
+# don't track large data file  
 *.xz
-
+/source/__pycache__/
+/source/.ipynb_checkpoints/
 
 # Compiled source #
 ###################

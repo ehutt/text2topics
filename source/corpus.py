@@ -198,7 +198,8 @@ def clean(raw_file,clean_path,results_path):
     raw_text = load_raw_text(raw_file)    
     clean_docs = list()
     nlp = spacy.load('en')
-    i = 1
+    i = 0
+    print('Cleaning documents...')
     for text in raw_text: 
         words = nlp(text)
         raw_count = len(words)
@@ -212,12 +213,13 @@ def clean(raw_file,clean_path,results_path):
         doc.clean_count = len(words)
         doc.raw_count = raw_count
         clean_docs.append(doc)
-        print('Document: ' + str(i))
+        if i%10 == 0:
+            print('Document: ' + str(i))
         i += 1
     clean_corpus = Corpus(clean_docs)
     clean_corpus.save_corpus_text(clean_file)
     clean_corpus.save_corpus_stats(stats_file)
-    print('Cleaned documents.')
+    print('Done')
     return clean_corpus
 
 

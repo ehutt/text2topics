@@ -53,7 +53,7 @@ class Elbow():
         plt.xlabel("Num Topics")
         plt.ylabel("Coherence score")
         plt.title('LDA Coherence by # Topics')
-        plt.savefig(self.folder + '/coherence_plot.png')
+        plt.savefig(self.folder + 'coherence_plot.png')
         #plt.show()
         print('Saved coherence plot.')
         return
@@ -81,7 +81,7 @@ class Elbow():
         plt.xlabel('Number of Clusters')
         plt.ylabel('Percent Variance Explained')
         plt.title('K-Means Elbow Curve')
-        plt.savefig(self.folder + '/elbow_variances.png')
+        plt.savefig(self.folder + 'elbow_variances.png')
 
         return
         
@@ -104,7 +104,7 @@ class Elbow():
         plt.xlabel('Number of Clusters')
         plt.ylabel('Sum of Distances')
         plt.title('K-Means Elbow Curve')
-        plt.savefig(self.folder + '/elbow_inertia.png')
+        plt.savefig(self.folder + 'elbow_inertia.png')
         plt.show()
         print('Saved elbow curve.')
         return
@@ -119,7 +119,7 @@ class Elbow():
         visualizer = KElbowVisualizer(km,k=range(self.start, self.stop, self.step),
                                       metric='calinski_harabaz', timings=False)
         visualizer.fit(corpus.vectors)
-        visualizer.poof(outpath= self.folder + '/elbow_c_h.png')
+        visualizer.poof(outpath= self.folder + 'elbow_c_h.png')
         print('Saved elbow curve.')
         return
     
@@ -133,6 +133,6 @@ class Elbow():
         visualizer = KElbowVisualizer(km,k=range(self.start, self.stop, self.step),
                                       timings=False)
         visualizer.fit(corpus.vectors)
-        visualizer.poof(outpath= self.folder + '/elbow_distortion.png')
+        visualizer.poof(outpath= self.folder + 'elbow_distortion.png')
         print('Saved elbow curve.')
         return
