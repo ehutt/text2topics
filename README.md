@@ -66,9 +66,9 @@ python run.py \
     --raw_file ../data/raw_docs.pkl \
     --clean_path ../data/ \
     --results_path ../results/ \
-    --clean_from_raw True \
-    --iterate True \
-    --use_lda False \
+    --clean_from_raw 1 \
+    --iterate 1 \
+    --use_lda 0 \
 ```
 
 ### Example 2
@@ -85,15 +85,15 @@ python run.py \
     --raw_file ../data/raw_docs.pkl \
     --clean_path ../data/ \
     --results_path ../results/ \
-    --clean_from_raw False \
-    --iterate False \
-    --use_lda False \
+    --clean_from_raw 0 \
+    --iterate 0 \
+    --use_lda 0 \
 ```
 ### Example 3
 
 To perform the above examples using LDA rather than the embeddings + clustering approach, pass the argument: 
 ```
-    --use_lda True \
+    --use_lda 1 \
 ```
 
 
