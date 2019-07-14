@@ -2,6 +2,8 @@
 *.xz
 /source/__pycache__/
 /source/.ipynb_checkpoints/
+/results/topic*
+/examples/.ipynb_checkpoints
 
 # Compiled source #
 ###################

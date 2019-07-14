@@ -15,7 +15,7 @@ from matplotlib import pyplot as plt
 from argparse import ArgumentParser
 
 
-def word_cloud(top_words,save_folder):
+def word_cloud(top_words,save_folder,show):
     
     for i in range(len(top_words)):
         words = list(top_words['Cluster ' + str(i)])
@@ -33,7 +33,8 @@ def word_cloud(top_words,save_folder):
         plt.gca().axis('off')
         plt.title('Topic ' + str(i+1))
         cloud.to_file(save_folder + '/topic' + str(i+1) + '.png')
-        #plt.show()
+        if show == True:
+            plt.show()
     return
 
 

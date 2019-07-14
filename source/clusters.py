@@ -96,7 +96,6 @@ class Cluster():
         return    
         
 def get_kmeans(clean_corpus,num_topics):
-    clean_corpus.vectorize() 
     cluster_model = Cluster(clean_corpus,num_topics)
     top_words_kmeans = cluster_model.get_top_words(clean_corpus, knn=10)
     return cluster_model,top_words_kmeans
