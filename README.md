@@ -42,13 +42,15 @@ cd text2topics
 pip install -r requirements.txt 
 ```
 
-3. If first time running, download needed models. Note: this may take some time (it's 788 MB). 
+3. See the example directory for a step by step usage example in a notebook. 
+
+## Advanced Usage 
+
+If first time running, you must download some important models. Note: this may take some time (it's 788 MB). 
 
 ```
 python config.py
 ```
-
-## Usage 
 
 ### Example 1
 
