@@ -74,9 +74,9 @@ python run.py \
 ### Example 2
 
 The following command will: 
-    1. load already cleaned data 
-    1. perform embedding + clustering procedure with a user provided number of topics
-    1. generate word clouds for each of the identified topics, saving to results folder
+* load already cleaned data 
+* perform embedding + clustering procedure with a user provided number of topics
+* generate word clouds for each of the identified topics, saving to results folder
     
 Use the resulting model and word clouds to explore the nature of the topics and documents. 
 ```
