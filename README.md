@@ -54,9 +54,9 @@ spacy download en_core_web_lg
 ### Example 1
 
 The following command will: 
-*load raw text data 
-*clean and process it 
-*iterate over different versions of the model
+* load raw text data 
+* clean and process it 
+* iterate over different versions of the model
     
 Use the resulting plot and the elbow method to identify the best number of topics. 
 
